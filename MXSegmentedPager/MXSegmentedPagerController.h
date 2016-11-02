@@ -51,6 +51,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSString *)segmentedPager:(MXSegmentedPager *)segmentedPager segueIdentifierForPageAtIndex:(NSInteger)index;
 
+/**
+ Asks the data source for number page of the segmented-pager
+
+ @return page number
+ */
+- (NSInteger)numberOfPagesInSegmentedController;
 @end
 
 /**

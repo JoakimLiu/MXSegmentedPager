@@ -59,6 +59,10 @@
 - (NSInteger)numberOfPagesInSegmentedPager:(MXSegmentedPager *)segmentedPager {
     NSInteger count = 0;
     
+    if ([self numberOfPagesInSegmentedController] > 0) {
+        return [self numberOfPagesInSegmentedController];
+    }
+
     //Hack to get number of MXPageSegue
     NSArray *templates = [self valueForKey:@"storyboardSegueTemplates"];
     for (id template in templates) {
@@ -103,6 +107,10 @@
 
 - (NSString *)segmentedPager:(MXSegmentedPager *)segmentedPager segueIdentifierForPageAtIndex:(NSInteger)index {
     return [NSString stringWithFormat:MXSeguePageIdentifierFormat, (long)index];
+}
+
+- (NSInteger)numberOfPagesInSegmentedController {
+    return 0;
 }
 
 #pragma mark <MXPageSegueSource>
