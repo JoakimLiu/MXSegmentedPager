@@ -98,8 +98,13 @@
     }
     
     [self layoutContentView];
-    [self layoutSegmentedControl];
-    [self layoutPager];
+    
+    if (!self.segmentedControl.hidden) {
+        [self layoutSegmentedControl];
+    }
+    if (!self.pager.hidden) {
+        [self layoutPager];
+    }
 }
 
 - (void)layoutContentView {
